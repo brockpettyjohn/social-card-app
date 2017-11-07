@@ -6,9 +6,9 @@ class App extends Component {
     super(props);
       this.state = {
           card: [],
-          name: "",
-          age: 0,
-          location: '',
+          nameInput: "",
+          ageInput: 0,
+          locationInput: '',
           user: {
             name: '',
             age: 0,
@@ -27,9 +27,9 @@ class App extends Component {
   addSocialCard(name, age, location) {
     console.log(this.state)
     const user = {...this.state.user}
-    user.name = this.state.name
-    user.age = this.state.age
-    user.location = this.state.location
+    user.name = this.state.nameInput
+    user.age = this.state.ageInput
+    user.location = this.state.locationInput
     this.setState({
                   // user:{
                   //        name: this.state.user.name, 
