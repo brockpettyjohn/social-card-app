@@ -6,29 +6,37 @@ class App extends Component {
     super(props);
       this.state = {
           card: [],
+          name: "",
+          age: 0,
+          location: '',
           user: {
-                  name:    '',
-                  age:     '',
-                  location:''
-                 }
+            name: '',
+            age: 0,
+            location: ''
+          }
       }
       this.handleInput = this.handleInput.bind(this);
       this.addSocialCard = this.addSocialCard.bind(this);
   }
   handleInput(e, value){
-    console.log(this.state.user)
+    console.log(this.state)
     this.setState({
       [value]: e,
     });
   }
-  addSocialCard() {
-    const user = this.state.user
+  addSocialCard(name, age, location) {
+    console.log(this.state)
+    const user = {...this.state.user}
+    user.name = this.state.name
+    user.age = this.state.age
+    user.location = this.state.location
     this.setState({
-                  user:{
-                         name: this.state.user.name, 
-                         age: this.state.user.age, 
-                         location: this.state.user.location
-                        },
+                  // user:{
+                  //        name: this.state.user.name, 
+                  //        age: this.state.user.age, 
+                  //        location: this.state.user.location
+                  //       },
+                  user,
       card : [...this.state.card, user]
     })
   }
@@ -66,7 +74,7 @@ class App extends Component {
             />
             <button 
             className="form-submit" 
-            onClick={this.addSocialCard}>
+            onClick={()=>this.addSocialCard(this.state.user.name, this.state.user.age, this.state.user.location)}>
             Submit
             </button>  
           </div>
